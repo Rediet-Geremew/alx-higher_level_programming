@@ -1,0 +1,30 @@
+import unittest
+from 0-add_integer import add_integer
+
+class TestAddInteger(unittest.TestCase):
+    def test_integers(self):
+        self.assertEqual(add_integer(3, 4), 7)
+        self.assertEqual(add_integer(-3, 4), 1)
+        self.assertEqual(add_integer(0, 0), 0)
+
+    def test_floats(self):
+        self.assertEqual(add_integer(3.5, 2.1), 5)
+	self.assertEqual(add_integer(-3.9, 4.5), 0)
+
+    def test_default_b(self):
+        self.assertEqual(add_integer(3), 101)
+
+    def test_invalid_type_a(self):
+        with self.assertRaises(TypeError):
+            add_integer("hello", 3)
+
+    def test_invalid_type_b(self):
+        with self.assertRaises(TypeError):
+            add_integer(3, "world")
+
+    def test_invalid_type_both(self):
+        with self.assertRaises(TypeError):
+            add_integer("hello", "world")
+
+if __name__ == '__main__':
+    unittest.main()
