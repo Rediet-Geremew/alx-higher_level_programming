@@ -1,26 +1,25 @@
-import unittest
-from 0-add_integer import add_integer
+"""Add two integers (or floats), returning the sum as an integer.
 
-class TestAddInteger(unittest.TestCase):
-    def test_integers(self):
-        self.assertEqual(add_integer(3, 4), 7)
-        self.assertEqual(add_integer(-3, 4), 1)
-        self.assertEqual(add_integer(0, 0), 0)
-
-    def test_floats(self):
-        self.assertEqual(add_integer(3.5, 2.1), 5)
-	self.assertEqual(add_integer(-3.9, 4.5), 0)
-
-    def test_default_b(self):
-        self.assertEqual(add_integer(3), 101)
-
-    def test_invalid_type_a(self):
-        with self.assertRaises(TypeError):
-            add_integer("hello", 3)
-
-    def test_invalid_type_b(self):
-        with self.assertRaises(TypeError):
-            add_integer(3, "world")
-
-if __name__ == '__main__':
-    unittest.main()
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer("school", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(2.9, 0.2)
+    2
+>>> add_integer("hello", "there")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+"""
